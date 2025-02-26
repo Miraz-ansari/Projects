@@ -4,7 +4,7 @@ import json
 import openai
 
 # Ensure OpenAI API Key is set
-openai.api_key = "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"
+openai.api_key = ""
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
