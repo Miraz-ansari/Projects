@@ -34,3 +34,16 @@ We are **automating the evaluation of insurance documents** to decide whether an
 - **Faster Decision-Making** → Insurance companies can process applications quickly.  
 
 Would you like a **flowchart or diagram** to visualize this? 🚀
+
+Here's a **visual flowchart** explaining the entire process of our automated insurance evaluation system. I'll generate it now. 🚀
+
+Here's the **flowchart** illustrating our automated insurance evaluation process. 🚀  
+
+This diagram visually explains how the system:  
+✅ Extracts data from PDFs  
+✅ Performs calculations  
+✅ Makes approval decisions  
+✅ Validates with AI  
+✅ Compares AI vs. Manual decision  
+
+Let me know if you need any modifications or additional explanations! 📊
