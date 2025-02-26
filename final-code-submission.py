@@ -157,3 +157,4 @@ for name, data in parsed_data.items():
 for name, data in parsed_data.items():
     validation_result = call_ai_for_decision(data)
     print(f"\nAI Decision for {name}: {validation_result['ai_decision']}, Correct: {validation_result['is_correct']}")
+    print("\nValidation Result:", validation_result)
