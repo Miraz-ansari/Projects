@@ -1,0 +1,55 @@
+Description
+The goal of this project is to create an automated system that processes insurance documents, calculates specific values related to Hired and Non-Hired (HNO) entities, and makes decisions based on these calculations. The system will use the LLM to ensure consistent and accurate results.
+
+Background
+Insurance documents often contain details about the type of insurance, mileage, fleet information, and other relevant data. Calculating HNO entities involves deriving certain values from this data, which helps in making decisions about approving or declining insurance submissions.
+
+Objectives
+1. Understand Key Data Points for the given data:
+             Total Fleet: The total number of vehicles in the fleet.
+     Annual Mileage: The total miles driven annually by the fleet.
+             Reimbursed Mileage: The total miles driven that are reimbursed to drivers.
+     State Information: The states where the vehicles are operating, as this affects the reimbursement rate.
+2. Perform Calculations:
+             Annual Mileage:
+     If annual mileage is provided directly, calculate PPT (per person trip) using:
+                  PPT = Annual Mileage / 15,000  
+     If mileage is given per day, first convert it to annual mileage by multiplying by 250 (working days), then calculate PPT:
+                 Annual Mileage = Daily Mileage * 250  
+                 PPT = Annual Mileage / 15,000  
+            Important Condition: If annual mileage is not provided directly, rely on the reimbursed mileage for the calculations.
+           Reimbursed Mileage:
+           Use the reimbursement rate to calculate PPT:
+                 PPT = Reimbursed Mileage / (Reimbursement Rate * 15,000)  
+           The reimbursement rate is 0.655 unless the state is Oregon (OR) or Washington (WA), where the rate is 0.8.
+3. Make a Decision:
+             Compare the total fleet with the calculated PPTs.
+             If the total fleet is greater than the PPTs, the decision is "Approve".
+             If the total fleet is less than or equal to the PPTs, the decision is "Decline"
+
+Example
+For a given document:
+• Total Fleet: 100 units
+• Reimbursed Mileage: 100,000 miles
+• State: CO (Colorado) and UT (Utah)
+
+Calculation:
+• Reimbursed Mileage:
+o PPT = 100,000 / (0.655 * 15,000) ˜ 10.18
+
+Decision:
+• Since 100 > 10.18, the decision is "Approve".
+
+Evalution
+Output Required:
+1. Prompt Used:
+              Create a clear and detailed prompt for the AI to follow the calculation steps and make consistent decisions.
+2. Output for Each Document:
+       Provide the output for each of the given documents, stating whether the submission is approved or declined.
+3. Python Script for Evaluation:
+               Write a Python script that to do LLM API call to check the AI's output for accuracy.
+       The script should:
+                    a. Extract key data points from the documents.
+                    b. Perform the necessary calculations manually.
+                    c. Compare the results with the AI's output.
+                    d. Return a response indicating whether the AI's decision is correct (True/False).
